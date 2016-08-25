@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from lcm_extract_joint_position import *
 from fft import get_spectrum
 
