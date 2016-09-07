@@ -1,9 +1,9 @@
-from bot_core import joint_state_t
+from bot_core import joint_state_t, robot_state_t
 import lcm
 import numpy as np
 
 
-def read_log(path, jlist):
+def read_log(path, jlist, channel):
     # store boolean mask of target joint names
     joint_mask = []
     joint_names = []
@@ -13,10 +13,15 @@ def read_log(path, jlist):
 
     log = lcm.EventLog(path)
     for event in log:
-        if event.channel == "CORE_ROBOT_STATE":
-            sample = []
 
-            msg = joint_state_t.decode(event.data)
+        if event.channel == channel:
+            # decode message based on channel
+            if channel == "CORE_ROBOT_STATE":
+                msg = joint_state_t.decode(event.data)
+            if channel == "EST_ROBOT_STATE":
+                msg = robot_state_t.decode(event.data)
+
+            sample = []
 
             # find target joints indices once
             if not joint_mask:
