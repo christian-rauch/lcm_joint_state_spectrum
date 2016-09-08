@@ -27,8 +27,8 @@ def read_log(path, jlist, channel):
             if not joint_mask:
                 for n in msg.joint_name:
                     joint_mask.append(n in jlist)
-                print "mask", joint_mask
-                print "joints", np.asarray(msg.joint_name)[np.where(joint_mask)[0]]
+                #print "mask", joint_mask
+                #print "joints", np.asarray(msg.joint_name)[np.where(joint_mask)[0]]
                 joint_names = np.asarray(msg.joint_name)[np.where(joint_mask)[0]]
 
             # store values from current message

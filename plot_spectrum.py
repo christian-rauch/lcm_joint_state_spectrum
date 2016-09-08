@@ -22,19 +22,12 @@ joints = [
     "leftThumbRoll",
 ]
 
-data_path = "joint_pos.npy"
-
 if __name__ == "__main__":
 
     logfile_path = sys.argv[1]
 
-    try:
-        [data, joint_names] = np.load(data_path)
-    except IOError:
-        print "reading data from log"
-        #data, joint_names = read_log(logfile_path, joints, channel="CORE_ROBOT_STATE")
-        data, joint_names = read_log(logfile_path, joints, channel="EST_ROBOT_STATE")
-        np.save(data_path, [data, joint_names])
+    # data, joint_names = read_log(logfile_path, joints, channel="CORE_ROBOT_STATE")
+    data, joint_names = read_log(logfile_path, joints, channel="EST_ROBOT_STATE")
 
     print "filtered joints", joint_names
 
