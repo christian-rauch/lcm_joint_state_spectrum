@@ -10,6 +10,7 @@ def read_log(path, jlist, channel):
 
     # matrix containing joint position values of target joints and time stamps
     data = []
+    time = []
 
     log = lcm.EventLog(path)
     for event in log:
@@ -32,11 +33,11 @@ def read_log(path, jlist, channel):
                 joint_names = np.asarray(msg.joint_name)[np.where(joint_mask)[0]]
 
             # store values from current message
-            sample.append([msg.utime / 1000000.0])
+            time.append(msg.utime / 1000000.0)
             sample.append(np.asarray(msg.joint_position)[np.where(joint_mask)[0]].tolist())
             sample = [item for sublist in sample for item in sublist]
 
             # add sample
             data.append(sample)
 
-    return np.asarray(data), joint_names
+    return np.asarray(data), np.asarray(time), joint_names
