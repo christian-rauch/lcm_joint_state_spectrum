@@ -81,8 +81,11 @@ if __name__ == "__main__":
         plt.figure(joint_names[i-1])
         plt.grid()
         # plot spectrum without the offset (0Hz component)
-        plt.stem(spect[0,1:], spect[i,1:])
+        #plt.stem(spect[0,1:], spect[i,1:])
+        plt.plot(spect[0, 1:], spect[i, 1:]) # faster plotting
+        # plot spectrum (with 0Hz component)
         #plt.stem(spect[0, :], spect[i, :])
+        #plt.plot(spect[0, :], spect[i, :]) # faster plotting
         plt.xlabel("frequency (Hz)")
         plt.ylabel("amplitude")
     plt.show()
