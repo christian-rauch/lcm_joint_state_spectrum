@@ -40,7 +40,12 @@ def get_spectrum(data, time):
         else:
             x_interp = np.interp(dt_interp, time[:,i], data[:, i])
 
-        x_spect = np.absolute(rfft(x_interp)).tolist()
-        spectrum.append(x_spect)
+        # FFT
+        x_spect = np.absolute(rfft(x_interp))
+        # convert to original units
+        x_spect = x_spect / (len(x_interp)/2.0)
+        x_spect[0] = x_spect[0] * 2
+
+        spectrum.append(x_spect.tolist())
 
     return np.asarray(spectrum)
