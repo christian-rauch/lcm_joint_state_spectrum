@@ -73,9 +73,9 @@ if __name__ == "__main__":
         for fi in fingers[f]:
             finger_name = f+str(fi-fingers[f][0]+1)
             # plot lcm
-            plt.plot(lcm_time, lcm_data[:, fi], label=finger_name+" lcm")
+            plt.plot(lcm_time - lcm_time[0], lcm_data[:, fi], label=finger_name+" lcm")
             # plot smt
-            plt.plot(smt_time[:, 0], smt_data[:, fi], label=finger_name+" smt")
+            plt.plot(smt_time[:, fi] - smt_time[0, fi], smt_data[:, fi], label=finger_name+" smt")
 
         plt.xlabel("time (s)")
         plt.ylabel("joint position (rad)")
