@@ -70,6 +70,7 @@ if __name__ == "__main__":
 
     for f in sorted(fingers.keys()):
         plt.figure(f)
+        plt.title(f)
         for fi in fingers[f]:
             finger_name = f+str(fi-fingers[f][0]+1)
             # plot lcm
@@ -79,7 +80,7 @@ if __name__ == "__main__":
 
         plt.xlabel("time (s)")
         plt.ylabel("joint position (rad)")
-        plt.legend()
+        plt.legend(ncol = 3, fancybox=True, framealpha=0.5)
         plt.grid()
 
     plt.show()
