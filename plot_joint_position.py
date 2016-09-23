@@ -6,36 +6,39 @@ import matplotlib.pyplot as plt
 
 import sys
 
+side = "left" # "right"
+#side = "right" # "left"
+
 joints = [
-    "leftIndexFingerPitch1",
-    "leftIndexFingerPitch2",
-    "leftIndexFingerPitch3",
-    "leftMiddleFingerPitch1",
-    "leftMiddleFingerPitch2",
-    "leftMiddleFingerPitch3",
-    "leftPinkyPitch1",
-    "leftPinkyPitch2",
-    "leftPinkyPitch3",
-    "leftThumbPitch1",
-    "leftThumbPitch2",
-    "leftThumbPitch3",
-    "leftThumbRoll",
+    side+"IndexFingerPitch1",
+    side+"IndexFingerPitch2",
+    side+"IndexFingerPitch3",
+    side+"MiddleFingerPitch1",
+    side+"MiddleFingerPitch2",
+    side+"MiddleFingerPitch3",
+    side+"PinkyPitch1",
+    side+"PinkyPitch2",
+    side+"PinkyPitch3",
+    side+"ThumbPitch1",
+    side+"ThumbPitch2",
+    side+"ThumbPitch3",
+    side+"ThumbRoll",
 ]
 
 smt_channel = [
-    "/left_arm/forearm_sensors/index/pitch_1",
-    "/left_arm/forearm_sensors/index/pitch_2",
-    "/left_arm/forearm_sensors/index/pitch_3",
-    "/left_arm/forearm_sensors/middle/pitch_1",
-    "/left_arm/forearm_sensors/middle/pitch_2",
-    "/left_arm/forearm_sensors/middle/pitch_3",
-    "/left_arm/forearm_sensors/pinky/pitch_1",
-    "/left_arm/forearm_sensors/pinky/pitch_2",
-    "/left_arm/forearm_sensors/pinky/pitch_3",
-    "/left_arm/forearm_sensors/thumb/pitch_1",
-    "/left_arm/forearm_sensors/thumb/pitch_2",
-    "/left_arm/forearm_sensors/thumb/pitch_3",
-    "/left_arm/forearm_sensors/thumb/roll",
+    "/"+side+"_arm/forearm_sensors/index/pitch_1",
+    "/"+side+"_arm/forearm_sensors/index/pitch_2",
+    "/"+side+"_arm/forearm_sensors/index/pitch_3",
+    "/"+side+"_arm/forearm_sensors/middle/pitch_1",
+    "/"+side+"_arm/forearm_sensors/middle/pitch_2",
+    "/"+side+"_arm/forearm_sensors/middle/pitch_3",
+    "/"+side+"_arm/forearm_sensors/pinky/pitch_1",
+    "/"+side+"_arm/forearm_sensors/pinky/pitch_2",
+    "/"+side+"_arm/forearm_sensors/pinky/pitch_3",
+    "/"+side+"_arm/forearm_sensors/thumb/pitch_1",
+    "/"+side+"_arm/forearm_sensors/thumb/pitch_2",
+    "/"+side+"_arm/forearm_sensors/thumb/pitch_3",
+    "/"+side+"_arm/forearm_sensors/thumb/roll",
 ]
 
 fingers = {"index"  : [0,1,2],
